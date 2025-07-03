@@ -1,6 +1,7 @@
 <?php
 
     require 'config/config.php';
+	require 'config/database.php';
 
     spl_autoload_register(
 		function($class){
