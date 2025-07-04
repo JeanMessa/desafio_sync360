@@ -65,5 +65,17 @@
             return $user;
         }
 
+        public function delete($id){
+            $sql = "DELETE FROM user where id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id",$id);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                return array("success" => true,"message" => "delete successfully");
+            }else{
+                return array("success" => false,"message" => "user not found");
+            } 
+        }
+
     }
 ?>

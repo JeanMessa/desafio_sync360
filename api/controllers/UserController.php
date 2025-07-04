@@ -14,6 +14,10 @@
                 }else{
                     $this->getAll();
                 }
+            }else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
+                if(isset($_GET['id'])){
+                    $this->delete();
+                }
             }
         }
 
@@ -71,6 +75,13 @@
 
             echo json_encode ($user->update($id,$name,$birthdate,$street,$district,$state,$biography,$img_name));
             
+        }
+
+        private function delete(){
+             $id = $_GET['id'];
+            
+            $user = new User();
+            echo json_encode ($user->delete($id));
         }
     }
 ?>
