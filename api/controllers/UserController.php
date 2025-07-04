@@ -8,14 +8,12 @@
         }
 
         private function create(){
-            print_r($_FILES);
             if(isset($_POST['name'],$_POST['birthdate'],$_POST['street'],$_POST['district'],$_POST['state'],$_POST['biography'])){
                 $user = new User();
 
                 $img_name = "default.png";
 
                 if(isset($_FILES['img_profile']['name']) && !empty($_FILES['img_profile']['name'])){
-                    print_r($_FILES);
                     $extension = pathinfo($_FILES['img_profile']['tmp_name'],PATHINFO_EXTENSION);
                     $file  = md5(date('Ymdhis').rand(111,999)).'.'.$extension;		
                     copy($_FILES['img_profile']['tmp_name'],'../profile_media/'.$file);
