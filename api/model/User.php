@@ -15,5 +15,19 @@
             return $this->db->LastInsertId();
         }
 
+        public function get($id){
+            $user = array();
+            $sql = "SELECT * FROM user where id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id",$id);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $user = $sql->fetch(\PDO::FETCH_ASSOC);
+                return $user;
+            }else{
+                return "user not found";
+            }
+        }
+
     }
 ?>

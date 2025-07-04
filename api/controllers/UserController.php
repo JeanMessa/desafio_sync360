@@ -2,8 +2,10 @@
     class UserController{
         
         public function main(){
-                if($_SERVER['REQUEST_METHOD'] == "POST"){
+            if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $this->create();
+            }else if(isset($_GET['id'])){
+                $this->get();
             }
         }
 
@@ -19,11 +21,15 @@
                     copy($_FILES['img_profile']['tmp_name'],'../profile_media/'.$file);
                     $img_name = $file;
                 }
-
                 echo json_encode ($user->create($_POST['name'],$_POST['birthdate'],$_POST['street'],$_POST['district'],$_POST['state'],$_POST['biography'],$img_name));
             }
                
-            
+        }
+
+        private function get(){
+            $id = $_GET['id'];
+            $user = new User();
+            echo json_encode( $user->get($id));
         }
     }
 ?>
