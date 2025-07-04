@@ -12,7 +12,8 @@
             $sql->bindValue(":biography", $biography);
             $sql->bindValue(":img_profile", $img_profile);
             $sql->execute();
-            return $this->db->LastInsertId();
+            $newUser = $this->get($this->db->LastInsertId());
+            return $newUser;
         }
 
         public function get($id){
