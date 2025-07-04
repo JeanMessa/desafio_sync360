@@ -41,5 +41,29 @@
             return $users;
         }
 
+        public function update($id,$name,$birthdate,$street,$district,$state,$biography,$img_profile){
+            $sql = 'Update user set
+                     name = IF(:name IS NOT NULL,:name,name),
+                     birthdate = IF(:birthdate IS NOT NULL,:birthdate,birthdate),
+                     street = IF(:street IS NOT NULL,:street,street),
+                     district = IF(:district IS NOT NULL,:district,district),
+                     state = IF(:state IS NOT NULL,:state,state),
+                     biography = IF(:biography IS NOT NULL,:biography,biography),
+                     img_profile = IF(:img_profile IS NOT NULL,:img_profile,img_profile)
+                    WHERE id = :id';
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id", $id);
+            $sql->bindValue(":name", $name);
+            $sql->bindValue(":birthdate", $birthdate);
+            $sql->bindValue(":street", $street);
+            $sql->bindValue(":district", $district);
+            $sql->bindValue(":state", $state);
+            $sql->bindValue(":biography", $biography);
+            $sql->bindValue(":img_profile", $img_profile);
+            $sql->execute();
+            $user = $this->get($id);
+            return $user;
+        }
+
     }
 ?>
