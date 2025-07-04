@@ -4,8 +4,12 @@
         public function main(){
             if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $this->create();
-            }else if(isset($_GET['id'])){
-                $this->get();
+            }else if($_SERVER['REQUEST_METHOD'] == "GET"){
+                if(isset($_GET['id'])){
+                    $this->get();
+                }else{
+                    $this->getAll();
+                }
             }
         }
 
@@ -30,6 +34,11 @@
             $id = $_GET['id'];
             $user = new User();
             echo json_encode( $user->get($id));
+        }
+
+        private function getAll(){
+            $user = new User();
+            echo json_encode( $user->getAll());
         }
     }
 ?>

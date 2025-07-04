@@ -30,5 +30,16 @@
             }
         }
 
+        public function getAll(){
+            $users = array();
+            $sql = "SELECT * FROM user";
+            $sql = $this->db->query($sql);
+
+            if($sql->rowCount() > 0){
+                $users = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $users;
+        }
+
     }
 ?>
