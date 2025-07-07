@@ -11,13 +11,6 @@ export class UserService {
   constructor(private httpClient:HttpClient) { }
 
   create(userData: FormData){
-
-    console.log('Tipo de userData:', typeof userData);
-    console.log('É uma instância de FormData?', userData instanceof FormData);
-
-    // Iterar sobre o FormData para ver o que ele contém
-    console.log('Conteúdo do FormData:');
-
     return this.httpClient.post(this.APIURL,userData);
   }
 }
