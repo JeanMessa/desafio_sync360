@@ -1,0 +1,22 @@
+label{
+    margin-top: 10px;
+}
+
+.textarea-biography{
+    height: 160px;
+    resize: none;
+}
+
+.btn-wrapper{
+    display: flex;
+    flex-direction:column;
+    gap: 12px;
+}
+
+@media (min-width: 751px){ 
+    .btn-wrapper{
+        flex-direction:row;
+        
+        justify-content: end;
+    }
+}

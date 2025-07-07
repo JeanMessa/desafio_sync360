@@ -1,0 +1,68 @@
+<form [formGroup]="userForm" (ngSubmit)="submit()" class="pt-3">
+    <div class="container">
+        <h1 class="text-center">{{title}}</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <label for="name">Nome</label>
+                <input class="form-control" placeholder="Digite seu nome" type="text" name="name" formControlName='name'>
+            </div>
+            <div class="col-lg-4 col-md-6 sm-12">
+                <label for="birthdate">Data de Nascimento</label>
+                <input class="form-control" type="date" name="birthdate" formControlName='birthdate'>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <label for="img_profile">Foto de Perfil</label>
+                <input class="form-control" type="file" name="img_profile" formControlName="img_profile" (change)="onFileSelected($event)" accept="image/*">
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <label for="street">Rua</label>
+                <input class="form-control" placeholder="Digite sua rua" type="text" name="street" formControlName="street">
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <label for="district">Bairro</label>
+                <input class="form-control" tplaceholder="Digite seu bairro" ype="text" name="district" formControlName="district">
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <label for="state">Estado</label>
+                <select class="form-select" name="state" formControlName="state">
+                    <option value="" selected>Selecione seu estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="biography">Biografia</label>
+                <textarea class="form-control textarea-biography" placeholder="Digite uma biografia para seu perfil" type="text" name="biography" formControlName="biography"></textarea>
+            </div>
+        </div>
+        <div class="pt-3 btn-wrapper">
+            <button type="reset" class="btn btn-danger btn-lg">Limpar</button>
+            <button type="submit" class="btn btn-success btn-lg" [disabled]="!userForm.valid">Salvar</button>
+        </div>
+    </div>
+</form>
