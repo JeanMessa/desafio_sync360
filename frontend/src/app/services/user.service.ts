@@ -31,6 +31,19 @@ export class UserService {
     return age;
   }
 
+  get(id:string){
+    return this.httpClient.get<User>(this.APIURL,{
+      params: new HttpParams().set("id",id)
+    });
+  }
+
+  update(id:string,userData:FormData){
+    return this.httpClient.post(this.APIURL,userData,{
+      params: new HttpParams().set("id",id)
+    })
+  }
+
+
   delete(id:number){
     return this.httpClient.delete<DeleteResponse>(this.APIURL,{
       params: new HttpParams().set("id",id)

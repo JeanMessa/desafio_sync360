@@ -13,6 +13,9 @@
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <label for="img_profile">Foto de Perfil</label>
                 <input class="form-control" type="file" name="img_profile" formControlName="img_profile" (change)="onFileSelected($event)" accept="image/*">
+                @if (editUser!=null) {
+                    <input type="checkbox" name="img_profile" formControlName="remove_img"><span>Utilizar foto padrão</span>
+                }
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <label for="street">Rua</label>
@@ -20,7 +23,7 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <label for="district">Bairro</label>
-                <input class="form-control" tplaceholder="Digite seu bairro" ype="text" name="district" formControlName="district">
+                <input class="form-control" placeholder="Digite seu bairro" type="text" name="district" formControlName="district">
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <label for="state">Estado</label>

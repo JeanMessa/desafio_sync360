@@ -4,6 +4,7 @@ import { User } from '../../types/User.type';
 import { UserService } from '../../services/user.service';
 import { AsyncPipe } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UsersComponent implements OnInit{
   users$! :Observable<User[]>;
 
-  constructor(private userService: UserService,private toastService:ToastrService){}
+  constructor(private userService: UserService,private toastService:ToastrService,private router:Router){}
 
   ngOnInit(): void {
     this.list();
@@ -27,6 +28,10 @@ export class UsersComponent implements OnInit{
 
   calcAge(birthdate: Date){
     return this.userService.calcAge(birthdate);
+  }
+
+  edit(id: number){
+    this.router.navigate(["/editar/"+id]);
   }
 
   delete(id:number){
