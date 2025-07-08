@@ -15,6 +15,8 @@ export class UserFormComponent implements OnInit {
   userForm!: FormGroup;
   imgProfile: File | null = null;
   editUser: User | null = null;
+  today:string = "";
+
   @Input() title: string = '';
   @Input() editUser$!: Observable<User>;
   @Output() save = new EventEmitter();
@@ -30,6 +32,12 @@ export class UserFormComponent implements OnInit {
       biography: new FormControl('',[Validators.required]),
       remove_img: new FormControl('')
     });
+
+    const todayDate = new Date();
+    const year = todayDate.getFullYear();
+    const month = (todayDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = todayDate.getDate().toString().padStart(2, '0');  
+    this.today = year + "-" + month + "-" + day;
   }
 
   ngOnInit(): void {
