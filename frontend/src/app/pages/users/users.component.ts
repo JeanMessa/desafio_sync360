@@ -16,7 +16,6 @@ export class UsersComponent implements OnInit{
   constructor(private userService: UserService){}
 
   ngOnInit(): void {
-    console.log("a");
     this.list();
   }
 
@@ -28,5 +27,5 @@ export class UsersComponent implements OnInit{
     return this.userService.calcAge(birthdate);
   }
 
-
+  
 }
