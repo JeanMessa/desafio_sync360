@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../types/User.type';
 import { UserService } from '../../services/user.service';
 import { AsyncPipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -10,10 +11,11 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
+
 export class UsersComponent implements OnInit{
   users$! :Observable<User[]>;
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService,private toastService:ToastrService){}
 
   ngOnInit(): void {
     this.list();
@@ -27,5 +29,21 @@ export class UsersComponent implements OnInit{
     return this.userService.calcAge(birthdate);
   }
 
-  
+  delete(id:number){
+    if(confirm("Tem certeza que deseja excluir esse usuário?")){
+      this.userService.delete(id).subscribe({
+        next: (data) => {
+          if(data.success){
+            this.toastService.success("Usuário excluido com sucesso");
+            this.list();
+          }else{
+            this.toastService.error("Erro ao excluir");
+          }
+        } ,
+        error: () => this.toastService.error("Erro ao excluir")
+      });
+    }
+  }
+
+
 }

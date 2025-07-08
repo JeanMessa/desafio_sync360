@@ -1,6 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../types/User.type';
+import { DeleteResponse } from '../types/DeleteResponse.type';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,11 @@ export class UserService {
     }
     return age;
   }
+
+  delete(id:number){
+    return this.httpClient.delete<DeleteResponse>(this.APIURL,{
+      params: new HttpParams().set("id",id)
+    })
+  }
+
 }
