@@ -1,0 +1,28 @@
+<div class="container">
+    @for (user of users$ | async; track user) {
+    <div class="user-card">
+        <div class="user-data">
+            <div>
+                <img src="http://localhost/desafio_sync360/profile_media/{{user.img_profile}}" width="120" height="120">
+            </div>
+            <div class="user-info">
+                <div>
+                    <span><b>Nome:</b> {{user.name}} </span>
+                    <span class="text-nowrap"><b>Idade:</b> {{[calcAge(user.birthdate)]}} </span>
+                </div>
+                <div>
+                    <span><b>Rua:</b> {{user.street}} </span>
+                    <span><b>bairro:</b> {{user.district}} </span>
+                    <span class="text-nowrap"><b>estado:</b> {{user.state}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <button class="btn btn-warning btn-lg">Editar</button>
+            <button class="btn btn-danger btn-lg">Excluir</button>
+            <a href="">Ver Detalhes</a>
+        </div>
+    </div>
+
+    }
+</div>
