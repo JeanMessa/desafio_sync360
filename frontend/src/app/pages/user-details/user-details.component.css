@@ -1,0 +1,30 @@
+.user-data{
+    border: solid 1px black;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    background-color: var(--card-background);
+}
+
+.data-wraper{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    height: 200px;
+}
+
+.btn-wraper{
+    display: flex;
+    flex-direction:column;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+
+    .img-wraper{
+        display: flex;
+    }
+
+    .data-wraper,.img-wraper{
+        justify-content: center;
+    }    
+}

@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <div class="row user-data">
+        <div class="col-lg-4 col-md-6 col-sm-12 img-wraper">
+            <img src="http://localhost/desafio_sync360/profile_media/{{user.img_profile}}" width="200" height="200">
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
+            <span><b>Nome:</b> {{user.name}} </span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
+            <span><b>Idade:</b> {{[calcAge(user.birthdate)]}} </span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
+            <span><b>Rua:</b> {{user.street}} </span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
+            <span><b>Bairro:</b> {{user.district}} </span>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
+            <span><b>Estado:</b> {{getStateName(user.state)}} </span>
+        </div>
+    </div>
+    <div class="btn-wraper">
+        <button class="btn btn-warning btn-lg" (click)="edit(user.id)">Editar</button>
+        <button class="btn btn-danger btn-lg" (click)="delete(user.id)">Excluir</button>
+    </div>
+
+</div>

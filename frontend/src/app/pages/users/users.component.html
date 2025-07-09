@@ -12,15 +12,15 @@
                 </div>
                 <div>
                     <span><b>Rua:</b> {{user.street}} </span>
-                    <span><b>bairro:</b> {{user.district}} </span>
-                    <span class="text-nowrap"><b>estado:</b> {{user.state}} </span>
+                    <span><b>Bairro:</b> {{user.district}} </span>
+                    <span class="text-nowrap"><b>Estado:</b> {{user.state}} </span>
                 </div>
             </div>
         </div>
         <div class="btn-wrapper">
             <button class="btn btn-warning btn-lg" (click)="edit(user.id)">Editar</button>
             <button class="btn btn-danger btn-lg" (click)="delete(user.id)">Excluir</button>
-            <a href="">Ver Detalhes</a>
+            <a class="btn btn-link" (click)="detail(user.id)">Ver Detalhes</a>
         </div>
     </div>
     }@empty {

@@ -50,5 +50,9 @@ export class UsersComponent implements OnInit{
     }
   }
 
+  detail(id:number){
+    this.router.navigate(["/usuario/"+id]);
+  }
+
 
 }
