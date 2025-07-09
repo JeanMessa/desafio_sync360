@@ -18,6 +18,9 @@
         <div class="col-lg-4 col-md-6 col-sm-12 data-wraper">
             <span><b>Estado:</b> {{getStateName(user.state)}} </span>
         </div>
+        <div class="col-lg-12 data-wraper">
+            <span><b>Biografia:</b> {{user.biography}} </span>
+        </div>
     </div>
     <div class="btn-wraper">
         <button class="btn btn-warning btn-lg" (click)="edit(user.id)">Editar</button>
