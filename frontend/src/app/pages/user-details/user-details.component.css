@@ -18,6 +18,10 @@
     gap: 12px;
 }
 
+.biography{
+    height: 80%;
+}
+
 @media (max-width: 768px) {
 
     .img-wraper{
